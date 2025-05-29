@@ -16,11 +16,31 @@ public class CatCafeTest {
     }
 
     @Test
+    public void testGetCatCount() {
+        assertEquals(cc.getCatCount(), 0);
+        FelineOverLord c = new FelineOverLord("Cat", 10);
+
+        cc.addCat(c);
+        assertEquals(cc.getCatCount(), 1);
+    }
+
+    @Test
     public void testAddCat() {
         FelineOverLord c = new FelineOverLord("Cat", 10);
 
         cc.addCat(c);
         assertEquals(cc.getCatCount(), 1);
+    }
+
+    @Test
+    public void testAddCatMultiple() {
+        FelineOverLord c1 = new FelineOverLord("cat1", 10);
+        FelineOverLord c2 = new FelineOverLord("cat2", 20);
+
+        cc.addCat(c1);
+        cc.addCat(c2);
+
+        assertEquals(cc.getCatCount(), 2);
     }
 
     @Test
